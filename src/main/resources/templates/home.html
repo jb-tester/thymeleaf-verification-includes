@@ -1,0 +1,49 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="~{included1::title}">
+    <!--IDEA-20515-->
+</head>
+<body>
+<h2>Included templates test</h2>
+<p>
+    Hello <span th:text="${userName}" id="foo">!!!!!</span>!!!
+</p>
+<div th:include="included1::fr1"></div>
+
+<div th:include="included1::fr2('have a good',${home_attr1})"></div> <!-- no navigation: https://youtrack.jetbrains.com/issue/IDEA-205379 -->
+<div th:include="included1::#fr3"></div> <!-- no navigation: https://youtrack.jetbrains.com/issue/IDEA-205378 -->
+<div th:include="included/included2::fr4"></div>
+<div th:include="::samefilefragment_1"></div>
+<div th:include="this::samefilefragment_2"></div>
+<div th:include="~{included/included3::fr5}"></div>
+<div th:include="~{included/included4}"></div>
+<div th:include="included5"></div>
+<p th:utext="~{::samefilefragment_3}"></p>
+<div th:include="~{::h2}">IDEA-20515</div>
+<div th:include="~{included1::title}">IDEA-20515</div>
+<p th:utext="~{:: h2/text()}">IDEA-20515, IDEA-205528</p>
+<p th:utext="~{:: span/text()}">IDEA-20515, IDEA-205528</p>
+<p>---------------------------------------------</p>
+
+<div th:fragment="samefilefragment_1">
+    <p th:text="'included same-file fragment 1'"></p>
+</div>
+<div th:fragment="samefilefragment_2">
+    <p th:text="'included same-file fragment   2'"></p>
+</div>
+<div th:fragment="samefilefragment_3">
+    included same-file fragment   3
+</div>
+<h1>not related to layout tests: IDEA-205684</h1>
+<div th:if="${mylist.empty}">
+    <p th:text="'is empty'"></p>
+</div>
+<div th:if="${!mylist.empty}">
+    <p th:text="empty"></p>
+    <div th:each="entry:${mylist}">
+        <p th:text="${entry.name}+' '+${entry.age}+' '+${entry['city']}+'; '+${entry.null}"></p>
+    </div>
+</div>
+</body>
+</html>
