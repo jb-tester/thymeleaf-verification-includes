@@ -11,8 +11,8 @@
 </p>
 <div th:include="included1::fr1"></div> <!-- rename doesn't work for short target names - IDEA-206001 -->
 
-<div th:include="included1::fr2('have a good',${home_attr1})"></div>
-<div th:include="included1::#fr3"></div>
+<div th:include="included1::fragment2('have a good',${home_attr1})"></div>
+<div th:include="included1::#fragment3"></div>
 <div th:include="included/included2::fr4"></div>
 <div th:include="::samefilefragment_1"></div>
 <div th:include="this::samefilefragment_2"></div>
