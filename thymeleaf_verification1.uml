@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.mytests.spring.thymeleaf.thymeleaf_verification1</OriginalElement>
+  <nodes>
+    <node x="0.0" y="272.0">com.mytests.spring.thymeleaf.thymeleaf_verification1.ThymeleafVerification1ApplicationTests</node>
+    <node x="0.0" y="0.0">com.mytests.spring.thymeleaf.thymeleaf_verification1.MyData</node>
+    <node x="0.0" y="399.0">com.mytests.spring.thymeleaf.thymeleaf_verification1.ThymeleafVerification1Application</node>
+    <node x="287.0" y="90.0">com.mytests.spring.thymeleaf.thymeleaf_verification1.MyController</node>
+  </nodes>
+  <notes>
+    <note x="369.5" y="0.0">
+      <node>com.mytests.spring.thymeleaf.thymeleaf_verification1.MyController</node>
+      <value>foo</value>
+      <edge>
+        <point x="0.0" y="-41.0" />
+        <point x="0.0" y="20.0" />
+      </edge>
+    </note>
+  </notes>
+  <edges />
+  <settings layout="Hierarchic Group" zoom="1.0" x="259.0" y="299.0" />
+  <SelectedNodes>
+    <node>com.mytests.spring.thymeleaf.thymeleaf_verification1.MyController</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
