@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>foo</title>
+</head>
+<body>
+<p>Check navigation and rename for the parametrized fragments:</p>
+<div th:include="this::samefilefragment_1('foo')"></div>
+<div th:include="::samefilefragment_2('foo')"></div>
+<div th:include="foo::samefilefragment_3('foo')"></div>
+<div th:include="includedToFoo::external_fragment('foo','bar')"></div>
+
+<div th:fragment="samefilefragment_1(myparam)">
+    <p th:text="included same-file fragment 1 with ${myparam}"></p>
+</div>
+<div th:fragment="samefilefragment_2(myparam)">
+    <p th:text="included same-file fragment 2 with ${myparam}"></p>
+</div>
+<div th:fragment="samefilefragment_3(myparam)">
+    <p th:text="included same-file fragment 3 with ${myparam}"></p>
+</div>
+<div th:include="includedToFoo::external_fragment_no_params"></div>
+</body>
+</html>
