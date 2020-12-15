@@ -2,7 +2,7 @@ package com.mytests.spring.thymeleaf.thymeleaf_verification1;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +14,7 @@ import java.util.List;
  * *******************************
  */
 @Controller
+@SessionAttributes("navigate_attr1")
 public class MyController {
     @RequestMapping("/")
     public String home(ModelMap model) {
@@ -29,5 +30,19 @@ public class MyController {
         model.addAttribute("home_attr3", "bye-bye!");
         model.addAttribute("home_attr4", "**************");
         return "home";
+    }
+
+    @RequestMapping("/example")
+    public String example(ModelMap model, @ModelAttribute("navigate_attr1") String na) {
+        MyData mydata = new MyData("vasya",18,"spb" );
+        model.addAttribute("mydata", mydata);
+        model.addAttribute("myattr",na);
+        return "example";
+    }
+
+    @RequestMapping("/navigate")
+    public String navigate(@RequestParam("ex") String ex, ModelMap model) {
+        model.addAttribute("navigate_attr1", ex);
+        return "redirect:/example";
     }
 }

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Example</title>
+</head>
+<body>
+<section th:include="~{example :: included_fragment(|${mydata.name} ${mydata.age} ${mydata.city}|)}"></section>
+
+<section th:include="~{example :: included_fragment(${mydata.name} + ' ' + ${mydata.age}+ ' from '+${mydata.city})}"></section>
+
+<div th:if="false" th:fragment="included_fragment(myparam)">
+    <h2 th:text="${myattr}">foo</h2>
+    <p th:text="${myparam}">somebody</p>
+</div>
+</body>
+</html>

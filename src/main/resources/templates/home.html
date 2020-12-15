@@ -15,6 +15,7 @@
 <div th:include="included1::#fragment3"></div>
 <div th:include="included/included2::fr4"></div>
 <div th:include="::samefilefragment_1"></div>
+<div th:include="this::samefilefragment_4('foo')"></div>
 <div th:include="this::samefilefragment_2"></div>
 <div th:include="~{included/included3::fr5}"></div>
 <div th:include="~{included/included4}"></div>
@@ -35,6 +36,9 @@
 <div th:fragment="samefilefragment_3">
     included same-file fragment   3
 </div>
+<div th:fragment="samefilefragment_4(myparam)">
+    <p th:text="included same-file fragment 4 with ${myparam}"></p>
+</div>
 <h1>not related to layout tests: IDEA-205684</h1>
 <div th:if="${mylist.empty}">
     <p th:text="'is empty'"></p>
@@ -45,5 +49,8 @@
         <p th:text="${entry.name}+' '+${entry.age}+' '+${entry['city']}+'; '+${entry.null}"></p>
     </div>
 </div>
+<p>---------------------------------------------</p>
+
+<a th:href="@{/navigate?ex='bar'}"> try me </a>
 </body>
 </html>
