@@ -22,9 +22,9 @@
 <div th:include="included5"></div>
 <p th:utext="~{::samefilefragment_3}"></p>
 <div th:include="~{::h2}">IDEA-20515</div>
-<div th:include="~{included1::title}">IDEA-20515</div>
-<p th:utext="~{:: h2/text()}">IDEA-20515, IDEA-205528</p>
-<p th:utext="~{:: span/text()}">IDEA-20515, IDEA-205528</p>
+<div th:include="~{included1::title}">IDEA-205515</div>
+<p th:utext="~{:: h2/text()}">IDEA-205515, IDEA-205528</p>
+<p th:utext="~{:: span/text()}">IDEA-205515, IDEA-205528</p>
 <p>---------------------------------------------</p>
 
 <div th:fragment="samefilefragment_1">
@@ -37,7 +37,7 @@
     included same-file fragment   3
 </div>
 <div th:fragment="samefilefragment_4(myparam)">
-    <p th:text="included same-file fragment 4 with ${myparam}"></p>
+    <p th:text="'included same-file fragment 4 with '+${myparam}"></p>
 </div>
 <h1>not related to layout tests: IDEA-205684</h1>
 <div th:if="${mylist.empty}">
@@ -50,7 +50,14 @@
     </div>
 </div>
 <p>---------------------------------------------</p>
+<!-- temp - some links test -->
+<p><a th:href="@{${my_url}}"> 1 </a></p>
+<p><a th:href="@{|/navigate?ex=${my_req_param}|}"> 2 </a></p>
+<p><a th:href="@{/navigate?ex='foo'}"> 3 </a></p>
+<p><a href="/navigate?ex='bar'"> 4 </a></p>
 
-<a th:href="@{/navigate?ex='bar'}"> try me </a>
+<p><a th:href="@{|/goto/${pathvar}|}"> test2 </a></p>
+<p><a th:href="@{/goto/test1}"> test1 </a></p>
+<p><a href="/goto/test0"> test0 </a></p>
 </body>
 </html>
