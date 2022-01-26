@@ -16,6 +16,11 @@ import java.util.List;
 @Controller
 @SessionAttributes("navigate_attr1")
 public class MyController {
+
+    @ModelAttribute("myurl")
+    public String myurl(){
+        return "";
+    }
     @RequestMapping("/")
     public String home(ModelMap model) {
         List<MyData> mylist = new ArrayList<>();
@@ -43,6 +48,11 @@ public class MyController {
     @RequestMapping("/navigate")
     public String navigate(@RequestParam("ex") String ex, ModelMap model) {
         model.addAttribute("navigate_attr1", ex);
+        return "redirect:/example";
+    }
+    @RequestMapping("/goto/{pathvar}")
+    public String gotoTest(ModelMap model, @PathVariable String pathvar) {
+        model.addAttribute("pathvar", pathvar);
         return "redirect:/example";
     }
 }
