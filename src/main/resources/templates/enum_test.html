@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>enum_test</title>
+</head>
+<body>
+<select name="color">
+    <option th:each="colorOpt : ${T(com.mytests.spring.thymeleaf.thymeleaf_verification1.Color).values()}"
+            th:value="${colorOpt}" th:text="${colorOpt.displayValue}"></option>
+</select>
+<div th:switch="${color}">
+    <span th:case="${T(com.mytests.spring.thymeleaf.thymeleaf_verification1.Color).RED}"
+          style="color: red;">Alert</span>
+    <span th:case="${T(com.mytests.spring.thymeleaf.thymeleaf_verification1.Color).ORANGE}"
+          style="color: orange;">Warning</span>
+    <span th:case="${T(com.mytests.spring.thymeleaf.thymeleaf_verification1.Color).YELLOW}"
+          style="color: yellow;">Caution</span>
+    <span th:case="${T(com.mytests.spring.thymeleaf.thymeleaf_verification1.Color).GREEN}"
+          style="color: green;">All Good</span>
+</div>
+<p th:text="${enum_test_attr1}"/>
+<p th:text="${enum_test_attr2}"/>
+<div th:text="${T(com.mytests.spring.thymeleaf.thymeleaf_verification1.SomeClass$InnerEnum).BOO.getValue()}">???</div>
+<div th:text="${T(com.mytests.spring.thymeleaf.thymeleaf_verification1.SomeClass.InnerEnum).BAR.getValue()}">???</div>
+</body>
+</html>
